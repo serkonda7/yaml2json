@@ -1,15 +1,15 @@
 {
-	"name": "yaml2json",
-	"version": "0.1.0-dev",
+	"name": "@serkonda7/yaml2json",
+	"version": "0.1.0",
 	"description": "",
 	"author": "Lukas Neubert <serkonda7@pm.me>",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/serkonda7/yaml2json"
+		"url": "https://github.com/serkonda7/yaml2json.git"
 	},
 	"bin": {
-		"yaml2json": "./dist/yaml2json.js"
+		"yaml2json": "dist/yaml2json.js"
 	},
 	"scripts": {
 		"compile": "tsc -p ./",
