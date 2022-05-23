@@ -8,7 +8,9 @@
 		"type": "git",
 		"url": "https://github.com/serkonda7/yaml2json"
 	},
-	"main": "out/main.ts",
+	"bin": {
+		"yaml2json": "./dist/yaml2json.js"
+	},
 	"scripts": {
 		"compile": "tsc -p ./",
 		"lint": "eslint .",

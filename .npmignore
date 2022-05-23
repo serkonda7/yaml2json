@@ -1,0 +1,6 @@
+.github/
+src/
+.gitignore
+.eslintignore
+.eslintrc.yml
+tsconfig.json
