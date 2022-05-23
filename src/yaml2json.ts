@@ -8,12 +8,11 @@ type Args = {
 }
 
 const parse_cli_args = (args: string[]): Args => {
-	const base_dir = path.dirname(args[0])
 	const res: Args = {
 		out_dir: 'out',
 		yml_files: []
 	}
-	for (let i = 1; i < args.length; i++) {
+	for (let i = 0; i < args.length; i++) {
 		const arg = args[i]
 		if (arg === '-o' || arg === '--out') {
 			i++
@@ -22,7 +21,7 @@ const parse_cli_args = (args: string[]): Args => {
 		}
 		res.yml_files.push(arg)
 	}
-	res.out_dir = path.resolve(base_dir, res.out_dir)
+	res.out_dir = path.resolve(process.cwd(), res.out_dir)
 	return res
 }
 
@@ -39,7 +38,7 @@ const convert_file = (yml_path: string, out_dir: string) => {
 }
 
 const main = () => {
-	const args = parse_cli_args(process.argv.slice(1))
+	const args = parse_cli_args(process.argv.slice(2))
 
 	if (!fs.existsSync(args.out_dir)) {
 		fs.mkdirSync(args.out_dir)
