@@ -1,5 +1,6 @@
 # build files
 dist/
+out/
 
 # editor files
 *.code-workspace
