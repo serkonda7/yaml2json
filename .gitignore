@@ -1,2 +1,8 @@
-# other
+# build files
+out/
+
+# editor files
 *.code-workspace
+
+# other
+node_modules/

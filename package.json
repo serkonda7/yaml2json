@@ -1,0 +1,28 @@
+{
+	"name": "yaml2json",
+	"version": "0.1.0-dev",
+	"description": "",
+	"author": "Lukas Neubert <serkonda7@pm.me>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/serkonda7/yaml2json"
+	},
+	"main": "out/main.ts",
+	"scripts": {
+		"compile": "tsc -p ./",
+		"lint": "eslint .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"js-yaml": "^4.1.0"
+	},
+	"devDependencies": {
+		"@types/js-yaml": "^4.0.5",
+		"@types/node": "^17.0.35",
+		"@typescript-eslint/eslint-plugin": "^5.26.0",
+		"@typescript-eslint/parser": "^5.26.0",
+		"eslint": "^8.16.0",
+		"typescript": "^4.6.4"
+	}
+}
