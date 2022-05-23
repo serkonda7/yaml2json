@@ -1,6 +1,12 @@
+# version control
 .github/
-src/
 .gitignore
+
+# source code and dev tooling
+src/
 .eslintignore
 .eslintrc.yml
 tsconfig.json
+
+# other
+CHANGELOG.md
