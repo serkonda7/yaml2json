@@ -9,13 +9,13 @@ type Args = {
 
 const parse_cli_args = (args: string[]): Args => {
 	const base_dir = path.dirname(args[0])
-	let res: Args = {
+	const res: Args = {
 		out_dir: 'out',
 		yml_files: []
 	}
 	for (let i = 1; i < args.length; i++) {
 		const arg = args[i]
-		if (arg == '-o' || arg == '--out') {
+		if (arg === '-o' || arg === '--out') {
 			i++
 			res.out_dir = args[i]
 			continue
