@@ -4,32 +4,43 @@ import * as yaml from 'js-yaml'
 import * as fs from 'fs'
 import * as path from 'path'
 
-type Args = {
-	out_dir: string
+type Config = {
 	yml_files: string[]
-	prettify: boolean
+	out_dir: string
+	indentation: number
 }
 
-const parse_cli_args = (args: string[]): Args => {
-	const res: Args = {
-		out_dir: 'out',
+const parse_cli_args = (args: string[]): Config => {
+	// init default config
+	const cfg: Config = {
 		yml_files: [],
-		prettify: false
+		out_dir: 'out',
+		indentation: 0
 	}
+
+	// process flags and args
 	for (let i = 0; i < args.length; i++) {
 		const arg = args[i]
 		if (arg === '-o' || arg === '--out') {
 			i++
-			res.out_dir = args[i]
-			continue
+			cfg.out_dir = args[i]
+		} else if (arg === '-p' || arg === '--pretty') {
+			cfg.indentation = 2
+		} else {
+			cfg.yml_files.push(arg)
 		}
-		if (arg === '-p' || arg === '--pretty') {
-			res.prettify = true
-		}
-		res.yml_files.push(arg)
 	}
-	res.out_dir = path.resolve(process.cwd(), res.out_dir)
-	return res
+
+	// post process config (resolve out dir)
+	cfg.out_dir = path.resolve(process.cwd(), cfg.out_dir)
+
+	return cfg
+}
+
+const ensure_dir_exists = (dir: string): void => {
+	if (!fs.existsSync(dir)) {
+		fs.mkdirSync(dir)
+	}
 }
 
 const get_final_out_path = (out_dir: string, inpath: string): string => {
@@ -45,16 +56,13 @@ const convert_file = (yml_path: string, out_dir: string, space: number) => {
 }
 
 const main = () => {
-	const args = parse_cli_args(process.argv.slice(2))
-	const space = args.prettify ? 2 : 0
+	const cfg = parse_cli_args(process.argv.slice(2))
 
-	if (!fs.existsSync(args.out_dir)) {
-		fs.mkdirSync(args.out_dir)
-	}
+	ensure_dir_exists(cfg.out_dir)
 
-	for (const p of args.yml_files) {
+	for (const p of cfg.yml_files) {
 		try {
-			convert_file(p, args.out_dir, space)
+			convert_file(p, cfg.out_dir, cfg.indentation)
 		} catch (e) {
 			console.log(e)
 		}

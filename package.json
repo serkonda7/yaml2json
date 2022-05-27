@@ -8,6 +8,9 @@
 		"type": "git",
 		"url": "https://github.com/serkonda7/yaml2json.git"
 	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
 	"bin": {
 		"yaml2json": "dist/yaml2json.js"
 	},

@@ -12,3 +12,4 @@ rules:
   no-duplicate-imports: error
   no-template-curly-in-string: error
   eqeqeq: error
+  indent: [error, tab]

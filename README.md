@@ -5,7 +5,7 @@ Utility script for converting YAML files to JSON.
 
 ## Installation
 ```sh
-npm i @serkonda7/yaml2json
+npm i --save-dev @serkonda7/yaml2json
 ```
 
 ## Usage
