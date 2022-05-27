@@ -5,7 +5,15 @@ Utility script for converting YAML files to JSON.
 
 ## Installation
 ```sh
-npm install @serkonda7/yaml2json
+npm i @serkonda7/yaml2json
+```
+
+## Usage
+```json
+// in package.json
+"scripts": {
+  "convert-yaml": "yaml2json myfile.yml otherfile.yml"
+}
 ```
 
 <!-- LINKS -->
