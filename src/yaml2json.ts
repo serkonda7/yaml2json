@@ -48,11 +48,10 @@ const get_final_out_path = (out_dir: string, inpath: string): string => {
 	return out_path.replace('.yml', '.json')
 }
 
-const convert_file = (yml_path: string, out_dir: string, space: number) => {
-	const yml_txt = fs.readFileSync(yml_path, 'utf8')
-	const obj = yaml.load(yml_txt)
-	const json_txt = JSON.stringify(obj, null, space) + '\n'
-	fs.writeFileSync(get_final_out_path(out_dir, yml_path), json_txt)
+const yaml_to_json = (yml_text: string, indent: number): string => {
+	const obj = yaml.load(yml_text)
+	const json_text = JSON.stringify(obj, null, indent) + '\n'
+	return json_text
 }
 
 const main = () => {
@@ -60,9 +59,12 @@ const main = () => {
 
 	ensure_dir_exists(cfg.out_dir)
 
-	for (const p of cfg.yml_files) {
+	for (const path of cfg.yml_files) {
 		try {
-			convert_file(p, cfg.out_dir, cfg.indentation)
+			const yml_txt = fs.readFileSync(path, 'utf8')
+			const json_text = yaml_to_json(yml_txt, cfg.indentation)
+			const out_path = get_final_out_path(cfg.out_dir, path)
+			fs.writeFileSync(out_path, json_text)
 		} catch (e) {
 			console.log(e)
 		}

@@ -13,3 +13,5 @@ rules:
   no-template-curly-in-string: error
   eqeqeq: error
   indent: [error, tab]
+  quotes: [error, single]
+  comma-spacing: error
