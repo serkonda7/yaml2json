@@ -1,4 +1,12 @@
 # Changelog
+## 0.4.0
+_27 May 2022_
+
+- fix `--pretty` arg being interpreted as input file too
+- readme: add usage section
+- eslint: rules for indent, quotes and comma spacing
+- refactor most functions
+
 ## 0.3.0
 _27 May 2022_
 
