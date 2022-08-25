@@ -9,11 +9,11 @@ npm i --save-dev @serkonda7/yaml2json
 ```
 
 ## Usage
-```json
-// in package.json
-"scripts": {
-  "convert-yaml": "yaml2json myfile.yml otherfile.yml"
-}
+```
+yaml2json [flags] <file.yml> [file2.yml ...]
+
+-o, --out      Specify a custom output dir. Default is ./out/
+-p, --pretty   Json files will have an indentation of 2. By default the output is minimized.
 ```
 
 <!-- LINKS -->
