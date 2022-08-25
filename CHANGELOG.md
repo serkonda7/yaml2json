@@ -1,7 +1,12 @@
 # Changelog
+## 0.5.0
+_25 August 2022_
+- add support for Node.js v14 LTS
+- update documentation and description
+- dependency updates
+
 ## 0.4.0
 _27 May 2022_
-
 - fix `--pretty` arg being interpreted as input file too
 - readme: add usage section
 - eslint: rules for indent, quotes and comma spacing
@@ -9,7 +14,6 @@ _27 May 2022_
 
 ## 0.3.0
 _27 May 2022_
-
 - add `--prettify` flag to indent json output with two spaces
 - upgrade TypeScript to 4.7.x series
 - downgrade node dependency to 16.x LTS series
@@ -17,5 +21,4 @@ _27 May 2022_
 
 ## 0.2.0
 _23 May 2022_
-
 - Initial release
