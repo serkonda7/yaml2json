@@ -1,7 +1,7 @@
 {
 	"name": "@serkonda7/yaml2json",
 	"version": "0.4.0",
-	"description": "",
+	"description": "Utility script for converting YAML files to JSON.",
 	"author": "Lukas Neubert <serkonda7@pm.me>",
 	"license": "MIT",
 	"repository": {
