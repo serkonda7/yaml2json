@@ -1,5 +1,5 @@
 # Changelog
-## 0.5.0
+## 0.5.1
 _25 August 2022_
 - add support for Node.js v14 LTS
 - update documentation and description
