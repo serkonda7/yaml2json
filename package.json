@@ -1,6 +1,6 @@
 {
 	"name": "@serkonda7/yaml2json",
-	"version": "0.6.1",
+	"version": "0.7.0-dev",
 	"description": "Utility script for converting YAML files to JSON.",
 	"author": "Lukas Neubert <serkonda7@pm.me>",
 	"license": "MIT",
@@ -15,12 +15,12 @@
 		"yaml2json": "dist/yaml2json.js"
 	},
 	"scripts": {
-		"add-shebang": "echo -e \"#!/usr/bin/env node\n$(cat dist/yaml2json.js)\" > dist/yaml2json.js",
+		"add-shebang": "sed -i '1s/^/#!\\/usr\\/bin\\/env node\\n/' dist/yaml2json.js",
 		"compile": "tsc -p ./ && npm run add-shebang",
 		"watch": "tsc -watch -p ./",
 		"lint": "eslint .",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"publish": "npm run compile && npm publish"
+		"publish": "npm run compile && npm publish",
+		"test": "node dist/yaml2json.js test/sample.yml -o ./out "
 	},
 	"dependencies": {
 		"js-yaml": "~4.1.0"
