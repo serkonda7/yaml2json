@@ -1,15 +1,27 @@
 # Changelog
-## 0.6.1 (rerelease of 0.6.0)
+## 0.7.0
 _18 October 2022_
 - give a nice error on nonexisting files
-- remove shebang
+- remove shebang from TS source
+- add shebang via npm script
 
 
-## 0.5.1 (rerelease of 0.5.0)
+## 0.6.1 [YANKED]
+_18 October 2022_
+
+
+## 0.6.0 [YANKED]
+_18 October 2022_
+
+
+## 0.5.1
 _25 August 2022_
 - add support for Node.js v14 LTS
 - update documentation and description
 - dependency updates
+
+## 0.5.0 [YANKED]
+_25 August 2022_
 
 
 ## 0.4.0
