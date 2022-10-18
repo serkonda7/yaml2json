@@ -18,6 +18,8 @@ jobs:
       - run: npm install
       - name: Compilation
         run: npm run compile
+      - name: Test conversion
+        run: node dist/yaml2json.js .eslintrc.ynl -o ./out
       - name: Code Style
         run: npm run lint
       - name: Create Release
