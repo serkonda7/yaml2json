@@ -1,11 +1,19 @@
 import * as yaml from 'js-yaml'
 import * as fs from 'fs'
 import * as path from 'path'
+import * as process from 'process'
 
 type Config = {
 	yml_files: string[]
 	out_dir: string
 	indentation: number
+}
+
+let errors = 0
+
+const log_error = (msg: string): void => {
+	errors++
+	console.log(`\x1b[31m${msg}\x1b[0m`)
 }
 
 const parse_cli_args = (args: string[]): Config => {
@@ -54,18 +62,26 @@ const yaml_to_json = (yml_text: string, indent: number): string => {
 
 const main = () => {
 	const cfg = parse_cli_args(process.argv.slice(2))
-
 	ensure_dir_exists(cfg.out_dir)
 
 	for (const path of cfg.yml_files) {
+		if (!fs.existsSync(path)) {
+			log_error(`file not found: ${path}`)
+			continue
+		}
+
 		try {
 			const yml_txt = fs.readFileSync(path, 'utf8')
 			const json_text = yaml_to_json(yml_txt, cfg.indentation)
 			const out_path = get_final_out_path(cfg.out_dir, path)
 			fs.writeFileSync(out_path, json_text)
 		} catch (e) {
-			console.log(e)
+			log_error((e as Error).message)
 		}
+	}
+
+	if (errors > 0) {
+		process.exit(0)
 	}
 }
 
