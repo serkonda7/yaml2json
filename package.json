@@ -15,7 +15,8 @@
 		"yaml2json": "dist/yaml2json.js"
 	},
 	"scripts": {
-		"compile": "tsc -p ./",
+		"add-shebang": "echo -e \"#!/usr/bin/env node\n$(cat dist/yaml2json.js)\" > dist/yaml2json.js",
+		"compile": "tsc -p ./ && npm run add-shebang",
 		"watch": "tsc -watch -p ./",
 		"lint": "eslint .",
 		"test": "echo \"Error: no test specified\" && exit 1",
