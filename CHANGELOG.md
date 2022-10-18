@@ -1,11 +1,11 @@
 # Changelog
-## 0.6.0
+## 0.6.1 (rerelease of 0.6.0)
 _18 October 2022_
 - give a nice error on nonexisting files
 - remove shebang
 
 
-## 0.5.1
+## 0.5.1 (rerelease of 0.5.0)
 _25 August 2022_
 - add support for Node.js v14 LTS
 - update documentation and description
