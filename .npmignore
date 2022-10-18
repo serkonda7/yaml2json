@@ -1,12 +1,9 @@
-# version control
-.github/
-.gitignore
+# ignore everything
+*
+*/
 
-# source code and dev tooling
-src/
-.eslintignore
-.eslintrc.yml
-tsconfig.json
-
-# other
-CHANGELOG.md
+# whitelist files
+package.json
+dist/yaml2json.js
+README.md
+LICENSE
