@@ -1,4 +1,5 @@
 import * as yaml from 'js-yaml'
+import * as glob from 'glob'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as process from 'process'
@@ -37,8 +38,9 @@ const parse_cli_args = (args: string[]): Config => {
 		}
 	}
 
-	// post process config (resolve out dir)
+	// post process config (resolve out dir and globs)
 	cfg.out_dir = path.resolve(process.cwd(), cfg.out_dir)
+	cfg.yml_files = cfg.yml_files.map((f) => glob.sync(f)).flat()
 
 	return cfg
 }

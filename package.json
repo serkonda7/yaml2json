@@ -21,7 +21,7 @@
 		"lint": "eslint .",
 		"publish": "npm run compile && npm publish",
 		"pretest": "npm link",
-		"test": "yaml2json test/sample.yml"
+		"test": "yaml2json test/sample.yml && yaml2json test/*.yml"
 	},
 	"dependencies": {
 		"glob": "~8.0.3",
