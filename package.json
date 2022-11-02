@@ -21,12 +21,14 @@
 		"lint": "eslint .",
 		"publish": "npm run compile && npm publish",
 		"pretest": "npm link",
-		"test": "yaml2json test/sample.yml"
+		"test": "yaml2json test/sample.yml && yaml2json test/*.yml"
 	},
 	"dependencies": {
+		"glob": "~8.0.3",
 		"js-yaml": "~4.1.0"
 	},
 	"devDependencies": {
+		"@types/glob": "~8.0.0",
 		"@types/js-yaml": "~4.0.5",
 		"@types/node": "^14.18.26",
 		"@typescript-eslint/eslint-plugin": "~5.35.1",
