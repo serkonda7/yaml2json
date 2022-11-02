@@ -1,4 +1,9 @@
 # Changelog
+## 0.8.0
+_02 November 2022_
+- fix rare case of file glob patterns not working
+
+
 ## 0.7.0
 _18 October 2022_
 - give a nice error on nonexisting files
