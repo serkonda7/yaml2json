@@ -9,22 +9,27 @@ on:
 
 jobs:
   ubuntu:
-    runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        version: [14, 16]
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.version }}
-      - run: npm install
+          node-version: 16.x
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Compilation
-        run: npm run compile
+        run: pnpm run compile
+
       - name: Test conversion
-        run: npm run test
+        run: pnpm run test
+
       - name: Code Style
-        run: npm run lint
+        run: pnpm run lint
+
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
