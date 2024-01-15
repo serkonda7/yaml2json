@@ -53,7 +53,7 @@ const ensure_dir_exists = (dir: string): void => {
 
 const get_final_out_path = (out_dir: string, inpath: string): string => {
 	const out_path = path.join(out_dir, path.basename(inpath))
-	return out_path.replace('.yml', '.json')
+	return out_path.replace('.yml', '.json').replace('.yaml-tmlanguage', '.json')
 }
 
 const yaml_to_json = (yml_text: string, indent: number): string => {
